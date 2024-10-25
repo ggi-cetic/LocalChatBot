@@ -1,0 +1,37 @@
+<style>
+body { background-color: #212121; /* deep dark gray */ color: #fff; /* white text */ } h1, h2, h3, h4, h5, h6 { color: #ccc; /* light gray headings */ font-weight: bold; } a { color: #87ceeb; /* light blue links */ } a:hover { color: #45b3fa; /* darker blue hover effect */ text-decoration: none; } input[type="text"], input[type="password"], textarea { background-color: #333; /* dark gray input fields */ border-color: #666; /* gray borders */ color: #fff; /* white text */ padding: 10px; /* add some space inside the inputs */ box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* a subtle shadow effect */ } ::-webkit-input-placeholder { color: #aaa; /* gray placeholder text */ } :-moz-placeholder { color: #aaa; /* gray placeholder text */ } :-ms-input-placeholder { color: #aaa; /* gray placeholder text */ } input[type="checkbox"] { background-color: #444; /* dark gray checkbox fill */ border-color: #666; /* gray borders */ box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* a subtle shadow effect */ } footer {color: #666; /* Grey font */ font-size: 0.8em; /* Smaller font size */}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local chatbot</title>
+</head>
+<body>
+    <h1>The most local chatbot ever</h1>
+    <pre>
+ /_/\  
+( o.o )
+ > ^ <
+_____________
+|  I am the |
+|  Local    |
+|  ChatBot  |
+|___________|</pre>
+    <form action="" method="post">
+        <label for="question"><h2>Enter your question here:</h2></label>
+        <input type="text" id="question" name="question" style="width: 900px;height: 100px;text-align: top;border-width: 0;"><br>
+        <input type="checkbox" id="forget" name="forget" > Forget previous conversations and start a new one</input><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <h2>Local chatbot said: </h2>
+    <pre class="code-block" style="max-width: 900px; font-size: 14px;"><code>{{ answer }}</code></pre>
+
+</body>
+<footer>
+    <p>Computation Time: {{ calculated_time }} ms</p>
+</footer>
+</html>
