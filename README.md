@@ -6,7 +6,7 @@ Local Chat Bot is a simple python flask application to interact in a chatbot way
 
 You will need :
 - Python
-- A bunch of python library : json, os, time, langchain, flask
+- A bunch of python library : json, os, time, langchain, flask, langchain_ollama
 - Ollama : https://ollama.com/download/linux
 - You're prefered Ollama model : https://ollama.com/library
 
