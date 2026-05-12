@@ -1,3 +1,0 @@
-{
-    "You: comment faire unr boucle for de 1 \u00e0 9 en bash?\r\n": "A simple one!\n\nTo loop from 1 to 9 in Bash, you can use a `for` loop like this:\n```\nfor i in {1..9}; do\n  # Do something with $i\ndone\n```\nThis will iterate over the numbers 1 through 9."
-}

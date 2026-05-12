@@ -1,3 +1,0 @@
-{
-    "You: In python, how to add a list to an existing list?": "In Python, you can add a list to an existing list by using the `extend()` method or the `+` operator.\n\n**Method 1: Using extend()**\n```\nlist1 = [1, 2, 3]\nlist2 = [4, 5, 6]\n\nlist1.extend(list2)\nprint(list1)  # Output: [1, 2, 3, 4, 5, 6]\n```\n\n**Method 2: Using the + operator**\n```\nlist1 = [1, 2, 3]\nlist2 = [4, 5, 6]\n\nlist1 = list1 + list2\nprint(list1)  # Output: [1, 2, 3, 4, 5, 6]\n```\n\nBoth methods will concatenate the two lists and return a new list. Note that `extend()` modifies the original list, while using the `+` operator returns a new list."
-}

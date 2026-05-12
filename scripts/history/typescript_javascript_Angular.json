@@ -1,4 +1,0 @@
-{
-    "You: Angular is based on javascript or typescript?": "Angular is primarily based on TypeScript, although it also supports JavaScript. In fact, TypeScript is used as the primary language for building Angular applications, and JavaScript can be used as a fallback when necessary.",
-    "You: So, can we consider that the language is typescript and angular is considered as the framework around?": "Yes, you can definitely consider TypeScript as the primary language, and Angular as the framework or ecosystem around it. In fact, the official documentation also refers to TypeScript as the \"primary language\" for building Angular applications. So, it's a fair simplification to say that TypeScript is the underlying language, and Angular is the framework that provides the structure and tools for building robust and scalable web applications using TypeScript."
-}

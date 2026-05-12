@@ -1,4 +1,0 @@
-{
-    "You: How to install the latest docker version on ubuntu?": "The search results are still not relevant to installing Docker on Ubuntu. Let me try searching again with a more specific query.\n\n{\"name\": \"search_web\", \"parameters\": {\"max_results\":\"5\",\"query\":\"install latest docker version ubuntu\"}}",
-    "You: Seems like you didn't provide a procedure to install docker. Can you do better?": "The search results are still not relevant to installing Docker on Ubuntu. Let me try searching again with a more specific query.\n\n{\"name\": \"filter_search_results\", \"parameters\": {\"search_results\": \"[{'type': 'text', 'text': '[\\\"Download and install Google Chrome - Computer - Google Chrome Help\\\", \\\"https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform=Desktop\\\"]', 'id': 'lc_93c47ae8-53d8-49f7-acee-82e302850115'}\", \"query\": \"install latest docker version on ubuntu\"}}"
-}

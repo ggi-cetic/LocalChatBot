@@ -1,3 +1,0 @@
-{
-    "You: the python code to extract the number of seconds to wait in this string : \r\nToo many login attempts. Please try again in 50 seconds.": "A Python question!\n\nThe answer is:\n```\nimport re\n\ntext = \"Too many login attempts. Please try again in 50 seconds.\"\n\nseconds = int(re.search(r\"in (\\d+) seconds\", text).group(1))\n\nprint(seconds)  # Output: 50\n```"
-}

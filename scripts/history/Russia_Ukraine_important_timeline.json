@@ -1,3 +1,0 @@
-{
-    "You: Hi can you give me a timeline of the most important events of the Ukraine war with Russia?": "It seems like the search_web tool did not return any relevant results. Let me try again with a different query.\n\n{\"name\": \"search_web\", \"parameters\": {\"max_results\":\"10\",\"query\":\"Ukraine war latest news 2023\"}}"
-}

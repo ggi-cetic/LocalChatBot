@@ -1,3 +1,0 @@
-{
-    "You: Peux-tu me donner le code permettant de tester si une variable est une liste en python?": "En Python, vous pouvez utiliser la fonction `isinstance()` pour v\u00e9rifier si une variable est une liste. Voici un exemple de code :\n\n```\nvariable = [1, 2, 3]\nif isinstance(variable, list):\n    print(\"La variable est une liste\")\nelse:\n    print(\"La variable n'est pas une liste\")\n```\n\nDans cet exemple, la fonction `isinstance()` v\u00e9rifie si la valeur de la variable `variable` est un objet de type liste. Si c'est le cas, il affiche \"La variable est une liste\", sinon il affiche \"La variable n'est pas une liste\"."
-}

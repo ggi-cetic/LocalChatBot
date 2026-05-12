@@ -1,3 +1,0 @@
-{
-    "You: un header pour requests qui rep\u00e9sente firefox sous linux?": "The answer to your question is `User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0`. This is the typical User-Agent header that represents a Firefox request under Linux."
-}
