@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Chatbot</title>
+    <link rel="stylesheet" href="static/styles.css"> <!-- Add your CSS file here -->
+</head>
+<body>
+    <header>
+        <h1>The most local chatbot ever</h1>
+    </header>
+    <main>
+        <section id="form-section">
+            <h2>Start a conversation:</h2>
+            <form action="{{ url_for('index') }}" method="post" >
+            <label for="modelSelect"><h3>Choose a model:</h3></label>
+            <select id="modelSelect" name="modelSelect">
+                {% for model in models %}
+                    <option value="{{ model['value'] }}" {% if model['selected'] %} selected {% endif %}>{{ model['text'] }}</option>
+                {% endfor %}
+            </select><br>
+            <label for="mySelect"><h3>Choose an existing conversation:</h3></label>
+            <select id="mySelect" name="mySelect">
+                {% for option in options %}
+                    <option value="{{ option['value'] }}" {% if option['selected'] %} selected {% endif %}>{{ option['text'] }}</option>
+                {% endfor %}
+            </select><br><br>OR<br><br>
+            <input type="checkbox" id="forget" name="forget" > Select to start a new one</input><br>
+            <label for="backendSelect"><h3>Choose search backend:</h3></label>
+            <select id="backendSelect" name="backendSelect">
+                {% for backend in backends %}
+                    <option value="{{ backend['value'] }}" {% if backend['selected'] %} selected {% endif %} {% if backend['disabled'] %} disabled {% endif %}>{{ backend['text'] }}{% if backend['disabled'] %} (unavailable){% endif %}</option>
+                {% endfor %}
+            </select><br>
+            <label for="user"><h3>Enter your question here:</h3></label>
+            <textarea id="question" name="question" style="width: 100%; height: 100px; white-space: pre-wrap; overflow-y: auto"></textarea><br>
+            
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <aside id="chat-log">
+            {{ ascii_art }}
+            <!--<h2>Local chatbot said:</h2>
+            <code>{{ answer }}</code>-->
+            <table>
+                <thead>
+                    <tr>
+                    <th>Local chatbot Conversation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for conversation in answer %}
+                    <tr>
+                    <td><code>{{ conversation }}</code></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>Computation Time: {{ calculated_time }} ms</p>
+    </footer>
+
+    <script>
+        // Load history when a conversation is selected
+        document.getElementById('mySelect').addEventListener('change', async function() {
+            const convIndex = this.value;
+            const forgetCheckbox = document.getElementById('forget');
+            
+            // Do not load history when "start new conversation" is checked
+            if (forgetCheckbox.checked) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/conversation/${convIndex}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const tbody = document.querySelector('#chat-log table tbody');
+                    
+                    // Clear table body
+                    tbody.innerHTML = '';
+                    
+                    // Fill with fetched history
+                    data.history.forEach(line => {
+                        const tr = document.createElement('tr');
+                        const td = document.createElement('td');
+                        td.innerHTML = `<code>${escapeHtml(line)}</code>`;
+                        tr.appendChild(td);
+                        tbody.appendChild(tr);
+                    });
+                } else {
+                    console.error('Error fetching history:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+            }
+        });
+        
+        // Utility to escape HTML characters
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+</body>
+</html>

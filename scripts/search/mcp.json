@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "websearch-scraper": {
+      "command": "python",
+      "args": [
+        "/Users/ggi/Documents/Workspace/chatllama3/search/search_mcp.py"
+      ],
+      "env": {}
+    }
+  }
+}

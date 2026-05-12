@@ -1,0 +1,25 @@
+{
+  "app": {
+    "default_template": "Index_modern.html",
+    "port": 5003,
+    "host": "0.0.0.0",
+    "debug": true
+  },
+  "ui": {
+    "default_model_index": 0,
+    "default_backend": "searxng",
+    "default_conversation_index": 0
+  },
+  "agent": {
+    "max_iterations": 10,
+    "conversation_history_size": 5
+  },
+  "search": {
+    "searxng": {
+      "search_url": "http://searxng-core:5002/search",
+      "health_url": "http://searxng-core:5002",
+      "health_check_timeout": 2.0
+    },
+    "backend_cache_ttl_seconds": 20
+  }
+}

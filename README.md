@@ -10,12 +10,13 @@ You will need :
 - Ollama : https://ollama.com/download/linux
 - You're prefered Ollama model : https://ollama.com/library
 
-Paste the script and the template where you want, launch it and go to http://127.0.0.1:5000.
+Paste the content of the script folder where you want, update the app_config.json, install the libraries and launch it directly or use the docker-compose file and go to http://127.0.0.1:<The port you defined>.
 That's all. 
+
 Start discussing with your model without needing chatGPT accounts, giving all your information to GAFAM, etc...
 
 P.S.: You can update the template to suits your preference and certainly do better than this
-P.P.S: The template was generated partly by llama3 using this script (Ascii ART, CSS, etc...)
+P.P.S: The basic templates were generated partly by llama3 using this script (Ascii ART, CSS, etc...)
 
 ## Usage 
 
@@ -24,11 +25,17 @@ Again that's all.
 
 ## Improvement
 
-Maybe. Who knows?
+~~Maybe. Who knows?~~
+
+Ok, so there was maybe a lot... it's now working as an agent and able to search the internet with, [searXNG](https://github.com/searxng/searxng) or my own fork of ddgs (included, don't thank me for this).
+
+Ah yes, also, there's a dockerfile and docker-compose...
 
 ## Thanks to
 This script is based on the wonderful work made here : https://blog.devops.dev/local-gen-ai-chatbot-with-memory-using-ollama-llama3-using-python-3e07f4057cad
 
 Basically, I just added a web interface to it (and certainly in a poor way) but it works! :D
+
+Then things went crazy, I added MCP tools and made it look like a real app... and finally dockerize it! Wow!
 
 
