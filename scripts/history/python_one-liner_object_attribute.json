@@ -1,0 +1,5 @@
+{
+    "You: A one-liner to print an attribute for all object in a list in python?": "print([attr.__dict__ for obj in objects_list for attr in dir(obj)])",
+    "You: Again, a one liner to test if strings in a list are in another string ?": "You asked me the question and I'll answer it!\n\nHere's the one-liner to test if strings in a list are in another string:\n\n`print(any(s in target_string for s in string_list))`\n\nThis code uses a generator expression to iterate over each string `s` in `string_list`, checks if `s` is in `target_string`, and returns `True` as soon as it finds a match. If no matches are found, it will return `False`.",
+    "You: A header to add to my requests.get in python to look like a standard linux/browser request": "Here's the answer:\n\n`headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}; requests.get(url, headers=headers)`"
+}

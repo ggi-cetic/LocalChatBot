@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The most local chatbot ever</title>
+    <style>
+        :root {
+            --bg-0: #0f172a;
+            --bg-1: #111827;
+            --bg-2: #1f2937;
+            --card: rgba(15, 23, 42, 0.82);
+            --card-border: rgba(148, 163, 184, 0.2);
+            --text-main: #e5e7eb;
+            --text-muted: #94a3b8;
+            --accent: #14b8a6;
+            --accent-2: #f59e0b;
+            --danger: #fb7185;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Avenir Next", "Segoe UI", sans-serif;
+            color: var(--text-main);
+            background:
+                radial-gradient(1000px 500px at 8% -10%, rgba(20, 184, 166, 0.2), transparent 60%),
+                radial-gradient(900px 460px at 95% 0%, rgba(245, 158, 11, 0.2), transparent 55%),
+                linear-gradient(160deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 88px 24px 24px;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(2, 6, 23, 0.82);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.24);
+            backdrop-filter: blur(10px);
+            z-index: 40;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: clamp(1rem, 0.7vw + 0.85rem, 1.35rem);
+            letter-spacing: 0.3px;
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        .layout {
+            width: min(1200px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 18px;
+            animation: fadeIn 500ms ease-out;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+        }
+
+        .left-panel {
+            padding: 22px;
+        }
+
+        .right-panel {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 640px;
+        }
+
+        .hero {
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: clamp(1.4rem, 1.4vw + 1rem, 2rem);
+            letter-spacing: 0.3px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: #d1fae5;
+            background: rgba(20, 184, 166, 0.18);
+            border: 1px solid rgba(20, 184, 166, 0.45);
+            border-radius: 999px;
+            padding: 6px 10px;
+            margin-bottom: 12px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+        }
+
+        form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        select,
+        textarea,
+        button {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(17, 24, 39, 0.72);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        select,
+        button {
+            min-height: 42px;
+            padding: 8px 12px;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+            padding: 12px;
+            line-height: 1.45;
+        }
+
+        select:focus,
+        textarea:focus,
+        button:focus {
+            border-color: rgba(20, 184, 166, 0.85);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+        }
+
+        button {
+            background: linear-gradient(100deg, var(--accent), #06b6d4);
+            color: #082f49;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .row input[type="checkbox"] {
+            accent-color: var(--accent-2);
+            width: 16px;
+            height: 16px;
+        }
+
+        .row span {
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .meta {
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .time-badge {
+            font-size: 0.78rem;
+            color: #fde68a;
+            background: rgba(245, 158, 11, 0.16);
+            border: 1px solid rgba(245, 158, 11, 0.36);
+            border-radius: 999px;
+            padding: 5px 10px;
+        }
+
+        .ascii {
+            border: 1px dashed rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 12px;
+            max-height: 140px;
+            overflow: auto;
+            color: #a7f3d0;
+            font-size: 0.82rem;
+            background: rgba(6, 78, 59, 0.1);
+        }
+
+        .chat-log {
+            flex: 1;
+            overflow: auto;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 12px;
+            background: rgba(2, 6, 23, 0.5);
+            padding: 8px;
+        }
+
+        .chat-item {
+            margin: 0;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            font-family: "SF Mono", "Menlo", monospace;
+            font-size: 0.88rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.4;
+            animation: rise 250ms ease both;
+        }
+
+        .chat-item + .chat-item {
+            margin-top: 8px;
+        }
+
+        .empty {
+            color: var(--text-muted);
+            text-align: center;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px dashed rgba(148, 163, 184, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .disabled-option {
+            color: #64748b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 960px) {
+            body {
+                padding: 12px;
+            }
+
+            .topbar {
+                height: 56px;
+            }
+
+            body {
+                padding-top: 76px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .right-panel {
+                min-height: 420px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <h1>The most local chatbot ever</h1>
+    </header>
+
+    <div class="layout">
+        <section class="panel left-panel">
+            <div class="pill"><span class="dot"></span>Local session active</div>
+            <div class="hero">
+                <p>Modern interface to manage your conversation, choose a model, and control the search backend.</p>
+            </div>
+
+            <form action="{{ url_for('index') }}" method="post">
+                <div class="field">
+                    <label for="modelSelect">Model</label>
+                    <select id="modelSelect" name="modelSelect">
+                        {% for model in models %}
+                            <option value="{{ model['value'] }}" {% if model['selected'] %}selected{% endif %}>{{ model['text'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="mySelect">Existing conversation</label>
+                    <select id="mySelect" name="mySelect">
+                        {% for option in options %}
+                            <option value="{{ option['value'] }}" {% if option['selected'] %}selected{% endif %}>{{ option['text'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="row">
+                    <input type="checkbox" id="forget" name="forget">
+                    <span>Start a new conversation</span>
+                </div>
+
+                <div class="field">
+                    <label for="backendSelect">Search backend</label>
+                    <select id="backendSelect" name="backendSelect">
+                        {% for backend in backends %}
+                            <option
+                                value="{{ backend['value'] }}"
+                                {% if backend['selected'] %}selected{% endif %}
+                                {% if backend['disabled'] %}disabled class="disabled-option"{% endif %}
+                            >
+                                {{ backend['text'] }}{% if backend['disabled'] %} (unavailable){% endif %}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="question">Question</label>
+                    <textarea id="question" name="question" placeholder="Example: Compare the latest Linux security changes and summarize the key points."></textarea>
+                </div>
+
+                <button type="submit">Submit question</button>
+            </form>
+
+            <div class="meta">Disabled options are unavailable in the current environment.</div>
+        </section>
+
+        <aside class="panel right-panel" id="chat-log">
+            <div class="chat-header">
+                <h2>Conversation history</h2>
+                <div class="time-badge">Time: {{ calculated_time | default(0) }} ms</div>
+            </div>
+
+            {% if ascii_art %}
+                <div class="ascii">{{ ascii_art | safe }}</div>
+            {% endif %}
+
+            <div class="chat-log" id="chatContainer">
+                {% if answer %}
+                    {% for conversation in answer %}
+                        <pre class="chat-item">{{ conversation }}</pre>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty">No messages yet. Ask a question to get started.</div>
+                {% endif %}
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(match) {
+                return map[match];
+            });
+        }
+
+        function renderHistory(lines) {
+            const container = document.getElementById('chatContainer');
+            container.innerHTML = '';
+
+            if (!Array.isArray(lines) || lines.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'empty';
+                empty.textContent = 'No messages in this conversation.';
+                container.appendChild(empty);
+                return;
+            }
+
+            lines.forEach(function(line) {
+                const pre = document.createElement('pre');
+                pre.className = 'chat-item';
+                pre.innerHTML = escapeHtml(String(line));
+                container.appendChild(pre);
+            });
+        }
+
+        document.getElementById('mySelect').addEventListener('change', async function() {
+            const convIndex = this.value;
+            const forgetCheckbox = document.getElementById('forget');
+
+            if (forgetCheckbox.checked) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/conversation/' + convIndex);
+                if (!response.ok) {
+                    console.error('History API error:', response.statusText);
+                    return;
+                }
+
+                const data = await response.json();
+                renderHistory(data.history || []);
+            } catch (error) {
+                console.error('History network error:', error);
+            }
+        });
+
+        document.getElementById('forget').addEventListener('change', function() {
+            if (this.checked) {
+                renderHistory([]);
+            }
+        });
+    </script>
+</body>
+</html>

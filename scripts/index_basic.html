@@ -1,0 +1,89 @@
+<style>
+body { background-color: #212121; /* deep dark gray */ color: #fff; /* white text */ } h1, h2, h3, h4, h5, h6 { color: #ccc; /* light gray headings */ font-weight: bold; } a { color: #87ceeb; /* light blue links */ } a:hover { color: #45b3fa; /* darker blue hover effect */ text-decoration: none; } input[type="comment"], input[type="password"], textarea { background-color: #333; /* dark gray input fields */ border-color: #666; /* gray borders */ color: #fff; /* white text */ padding: 10px; /* add some space inside the inputs */ box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* a subtle shadow effect */ } ::-webkit-input-placeholder { color: #aaa; /* gray placeholder text */ } :-moz-placeholder { color: #aaa; /* gray placeholder text */ } :-ms-input-placeholder { color: #aaa; /* gray placeholder text */ } input[type="checkbox"] { background-color: #444; /* dark gray checkbox fill */ border-color: #666; /* gray borders */ box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* a subtle shadow effect */ } footer {color: #666; /* Grey font */ font-size: 0.8em; /* Smaller font size */} .code-block {overflow-x: scroll; max-width: 900px; font-size: 14px; text-align: left; white-space: pre-wrap}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local chatbot</title>
+</head>
+<body>
+    <h1>The most local chatbot ever</h1>
+    <pre>
+ /_/\  
+( o.o )
+ > ^ <
+_____________
+|  I am the |
+|  Local    |
+|  ChatBot  |
+|___________|</pre>
+
+    <form action="" method="post">
+        <label for="mySelect"><h2>Choose a model:</h2></label>
+            <select id="modelSelect" name="modelSelect">
+            {% for model in models %}
+                <option value="{{ model['value'] }}" {% if model['selected'] %} selected {% endif %} >{{ model['text'] }}</option>
+            {% endfor %}
+            </select><br>
+        <label for="mySelect"><h2>Choose a conversation:</h2></label>
+            <select id="mySelect" name="mySelect">
+            {% for option in options %}
+                <option value="{{ option['value'] }}" {% if option['selected'] %} selected {% endif %} >{{ option['text'] }}</option>
+            {% endfor %}
+            </select><br><br>OR<br><br>
+        <input type="checkbox" id="forget" name="forget" > Select to start a new one</input><br>
+        <label for="backendSelect"><h2>Choose search backend:</h2></label>
+        <select id="backendSelect" name="backendSelect">
+            {% for backend in backends %}
+                <option value="{{ backend['value'] }}" {% if backend['selected'] %} selected {% endif %} {% if backend['disabled'] %} disabled {% endif %}>{{ backend['text'] }}{% if backend['disabled'] %} (unavailable){% endif %}</option>
+            {% endfor %}
+        </select><br>
+        <label for="user"><h2>Enter your question here:</h2></label>
+        <textarea id="question" name="question" style="width: 900px; height: 100px; white-space: pre-wrap; overflow-y: auto"></textarea><br>
+        <!--<input type="comment" id="question" name="question" style="width: 900px;height: 100px;text-align: top;border-width: 0;"><br>-->
+        <!--<input type="checkbox" id="forget" name="forget" > Forget previous conversations and start a new one</input><br>-->
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <h2>Local chatbot said: </h2>
+    <pre class="code-block"><code>{{ answer }}</code></pre>
+
+
+    <script>
+        // Load history when a conversation is selected
+        document.getElementById('mySelect').addEventListener('change', async function() {
+            const convIndex = this.value;
+            const forgetCheckbox = document.getElementById('forget');
+            
+            // Do not load history when "start new conversation" is checked
+            if (forgetCheckbox.checked) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/conversation/${convIndex}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    // Show history in the response output area
+                    let historyText = data.history.join('\n');
+                    // Write it in the response section
+                    let preElement = document.querySelector('pre.code-block code');
+                    if (preElement) {
+                        preElement.textContent = historyText;
+                    }
+                } else {
+                    console.error('Error fetching history:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+            }
+        });
+    </script>
+</body>
+<footer>
+    <p>Computation Time: {{ calculated_time }} ms</p>
+</footer>
+</html>

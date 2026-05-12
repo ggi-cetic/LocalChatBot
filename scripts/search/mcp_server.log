@@ -1,0 +1,62 @@
+2026-01-13 15:42:15,191 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:42:15,191 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting value: line 1 column 1 (char 0)
+2026-01-13 15:42:15,191 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:42:15,191 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2026-01-13 15:43:06,956 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:43:06,956 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2026-01-13 15:43:06,956 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:44:23,675 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:44:23,675 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+2026-01-13 15:44:23,675 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:44:54,914 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:44:54,914 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:44:54,914 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:44:54,914 - websearch-scraper - ERROR - filter_search_results: invalid input: the JSON object must be str, bytes or bytearray, not list
+2026-01-13 15:45:41,947 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:45:41,948 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:45:41,948 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:45:41,948 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:50:52,478 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:50:52,479 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:50:52,479 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting ',' delimiter: line 1 column 29 (char 28)
+2026-01-13 15:51:31,246 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:51:31,247 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:51:31,247 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:51:31,247 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:51:31,247 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:51:31,247 - websearch-scraper - WARNING - filter_search_results: input is not a list
+2026-01-13 15:51:31,247 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:51:31,247 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting ',' delimiter: line 1 column 29 (char 28)
+2026-01-13 15:52:23,291 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:52:23,292 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:52:23,292 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:52:23,292 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:56:44,216 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:56:44,217 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:56:44,217 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:56:44,217 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 15:56:44,217 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 15:56:44,217 - websearch-scraper - ERROR - filter_search_results: invalid input: Expecting ',' delimiter: line 1 column 20 (char 19)
+2026-01-13 16:12:31,494 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:12:31,495 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:12:31,495 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:12:31,495 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:12:31,495 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:12:31,495 - websearch-scraper - ERROR - filter_search_results: invalid input: the JSON object must be str, bytes or bytearray, not dict
+2026-01-13 16:13:26,263 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:13:26,263 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:13:26,263 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:13:26,263 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:13:26,263 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:13:26,263 - websearch-scraper - ERROR - filter_search_results: invalid input: the JSON object must be str, bytes or bytearray, not list
+2026-01-13 16:14:08,154 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:14:08,154 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:14:08,154 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:14:08,154 - websearch-scraper - INFO - filter_search_results: returning 2 results
+2026-01-13 16:14:08,154 - websearch-scraper - INFO - 🔧 Appel d'outil reçu: filter_search_results (top_k=2)
+2026-01-13 16:14:08,154 - websearch-scraper - ERROR - filter_search_results: invalid input: the JSON object must be str, bytes or bytearray, not list

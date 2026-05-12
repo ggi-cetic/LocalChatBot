@@ -1,0 +1,3 @@
+{
+    "You: Write me a short text to explain the objectives details of a penetration testing session that we are about to make on a web app which has never been tested before. The main target is to evaluate its security level.": "The objectives of a penetration testing session for an untested web application are to evaluate its security level by identifying vulnerabilities and weaknesses. The main target is to assess the application's defenses against potential attacks and provide recommendations for improvement.\n\nSource:\n1. Merriam-Webster Dictionary: OBJECTIVE Definition & Meaning\n2. AhaSlides Blog: How to Write Objectives | A Step-to-step Guide | 2025 Updates\n3. Success In Depth: Goals vs Objectives : What is the Difference & Examples"
+}

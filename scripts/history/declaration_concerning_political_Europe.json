@@ -1,0 +1,3 @@
+{
+    "You: Can you give me a summary of the latest political declaration of the United States from president Trump and concerning Europe?": "Based on the search_web result, it seems that the question was about the latest political declaration of the United States by President Trump concerning Europe. However, none of the results seem to be directly related to this specific topic.\n\nTo get more relevant results, I would like to make a new call to the search_web tool with a more specific query:\n\n{\"name\": \"search_web\", \"parameters\": {\"max_results\": \"10\", \"query\": \"latest political declaration of United States by President Trump concerning Europe\"}}"
+}

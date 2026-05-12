@@ -1,0 +1,38 @@
+services:
+  chatllama3:
+    build: .
+    container_name: chatllama3
+    ports:
+      - "5003:5003"
+    volumes:
+      # Persister l'historique des conversations
+      - ./history:/app/history
+      # Configuration unifiée (app + search)
+      - ./app_config.json:/app/app_config.json
+    environment:
+      # Connexion à Ollama sur la machine hôte
+      - OLLAMA_HOST=host.docker.internal:11434
+    extra_hosts:
+      # Permet d'accéder à l'hôte depuis le conteneur (macOS/Windows)
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - searxng_default
+
+networks:
+  searxng_default:
+    external: true
+
+  # Optionnel: Ollama dans un conteneur séparé
+  # Décommenter si tu veux aussi conteneuriser Ollama
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   restart: unless-stopped
+
+# volumes:
+#   ollama_data:

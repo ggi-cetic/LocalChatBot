@@ -1,0 +1,3 @@
+{
+    "You: Can you sum up this article : https://www.darkreading.com/threat-intelligence/cybersecurity-predictions-for-2026-navigating-the-future-of-digital-threats": "To answer the question, I will use the following function calls:\n\n1. `fetch_url_content` to get the content of the article\n2. Summarize the content to provide a comprehensive answer\n\nHere are the function calls with their arguments:\n\n{\"name\": \"fetch_url_content\", \"parameters\": {\"url\": \"https://www.darkreading.com/threat-intelligence/cybersecurity-predictions-for-2026-navigating-the-future-of-digital-threats\", \"max_length\": 5000}}"
+}
