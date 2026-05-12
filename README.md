@@ -25,7 +25,8 @@ Again that's all.
 
 ## Improvement
 
---Maybe. Who knows?--
+~~Maybe. Who knows?~~
+
 Ok, so there was maybe a lot... it's now working as an agent and able to search the internet with, [searXNG](https://github.com/searxng/searxng) or my own fork of ddgs (included, don't thank me for this).
 
 Ah yes, also, there's a dockerfile and docker-compose...
